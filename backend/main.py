@@ -196,7 +196,7 @@ async def user_login(loginitem: LoginItem, response: Response):
             value=token,
             httponly=True,
             secure=True,  
-            samesite="Lax",
+            samesite="none",
             max_age=ACCES_TOKEN_EXPRIES_MINUTES * 60
         )
         return {"message": "login_success"}
