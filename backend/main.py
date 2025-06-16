@@ -15,13 +15,13 @@ Base = declarative_base()
 class Team(Base):
     __tablename__ = "team"
 
-    team_id = Column(Integer, primary_key=True, index=True)
+    team_id = Column(Integer, primary_key=True, index=True, autoincrement=True)
     team_name = Column (String)
 
 class User(Base):
     __tablename__ = "user"
 
-    user_id = Column(Integer, primary_key=True, index=True)
+    user_id = Column(Integer, primary_key=True, index=True, autoincrement=True)
     username = Column(String)
     password_hash = Column (String)
     full_name = Column(String)
@@ -76,24 +76,22 @@ usernames = [
     "jackr_88"
 ]
 
-for i in range(2, 12):
+for i in range(0, 10):
     new_user = User(
-        user_id=i,
-        username= usernames[i-2],
+        username= usernames[i],
         password_hash="$2b$12$yCP4nkODQUVznnmgKYKpAeGvFgi7jsgIn37dLXbBNwiEE4cVdyT6q",
-        full_name=names[i-2],
+        full_name=names[i],
         email=f"user{i}@example.com",
-        team_id=random.randint(1, 10),
+        team_id=random.randint(0, 10),
         role="Player"
     )
     session.add(new_user)
 new_user = User(
-        user_id=1,
         username= "admin",
         password_hash="$2b$12$BSyRxFYhVVrjzAlQXUl1.eKi6A/91z4Y1IePaVIeB0KZTaUvJrjfO",
         full_name="admin",
         email=f"admin@example.com",
-        team_id=random.randint(1, 10),
+        team_id=random.randint(0, 10),
         role="Manager"
     )
 session.add(new_user)
@@ -106,7 +104,6 @@ for i in range(1, 100):
         home_team_id=random.randint(1, 10)
 
     match = Match(
-            match_id=i,
             location=random.choice(locations),
             date=date.today() + timedelta(days=i),
             opponent_team_id=opponent_team_id,
