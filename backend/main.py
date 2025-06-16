@@ -356,11 +356,6 @@ def delete_match(match_id: int):
 
     return match
 
-@app.get("/")
-def read_root():
-    return session.query(User).all()
-
-
 
 @app.get("/match/team/{team_id}")
 def get_user_match(team_id: int):
