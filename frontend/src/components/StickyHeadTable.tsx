@@ -74,7 +74,7 @@ export function ActionButtons({ info, index, handleUpdate }: { info?: Team, inde
     const [teamName, setTeamName] = useState(info?.team_name)
     const [confirm, setConfirm] = useState(false)
     const [open, setOpen] = useState(false);
-    // const [method, setMethod] = useState("");
+
     const handleOpen = (method: string) => {
         setTeamName(info?.team_name || "");
         console.log("click", method)

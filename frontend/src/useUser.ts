@@ -15,7 +15,7 @@ export function useUser() {
 
   useEffect(() => {
     fetch(`${API_BASE_URL}/me`, {
-      credentials: "include", // ✅ send the secure cookie
+      credentials: "include", 
     })
       .then(async (res) => {
         if (!res.ok) throw new Error("Not logged in");

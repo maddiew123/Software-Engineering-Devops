@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useNavigate } from "react-router";
-// import { fetchToken, setToken } from "./Auth";
 import { useState } from "react";
 import "../styling/Login.css"
 import HeaderComponent from "../components/HeaderComponent";

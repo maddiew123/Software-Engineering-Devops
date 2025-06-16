@@ -71,7 +71,7 @@ export default function ViewAllTeams() {
     return prevTeams;
   });
 
-  console.log("teams:", allTeams); // Note: `allTeams` won't show updated value immediately (React state updates are async)
+  console.log("teams:", allTeams);
 };
 
 

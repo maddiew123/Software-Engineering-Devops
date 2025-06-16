@@ -42,7 +42,6 @@ export function useAuth() {
   return { user, loading };
 }
 
-// Optional helper to logout
 export const logout = async () => {
   try {
     await fetch(`${API_BASE_URL}/logout`, {
