@@ -126,7 +126,7 @@ ACCES_TOKEN_EXPRIES_MINUTES = 800
 
 app = FastAPI()
 
-origins = ["*"]
+origins = ["https://software-engineering-agile-assignment-3.onrender.com","localhost:5173"]
 
 app.add_middleware(
     CORSMiddleware,

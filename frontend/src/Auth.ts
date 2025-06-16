@@ -1,42 +1,9 @@
-// import type { ReactNode } from "react"
-// import { useNavigate } from "react-router-dom"
 
-// export const setToken = (token : string)=>{
-
-//     localStorage.setItem('tokenya', token)
-// }
-
-// export const fetchToken = ()=>{
-//     localStorage.removeItem("tokenya")
-
-//     return localStorage.getItem('tokenya')
-// }
-// export const setCurrentUser = (current_user : string) =>{
-//     localStorage.setItem('userya', current_user)
-// }
-// export const fetchCurrentUser = () =>{
-//     localStorage.getItem('userya')
-// }
-
-// export function RequireToken({children}: {children: ReactNode}){
-
-//     let auth = fetchToken()
-//     let navigate = useNavigate()
-
-//     if(!auth){
-
-//         navigate("/");
-//     } else {
-//         navigate("/profile");
-//     }
-
-//     return children;
-// }
 
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
-// Utility hook to check if the user is authenticated
+
 export function useAuth() {
   const [user, setUser] = useState<null | {
     username: string;
@@ -50,7 +17,7 @@ export function useAuth() {
     const fetchUser = async () => {
       try {
         const res = await fetch(`${API_BASE_URL}/me`, {
-          credentials: "include", // <-- include cookies
+          credentials: "include", 
         });
 
         if (res.ok) {

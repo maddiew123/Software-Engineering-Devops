@@ -24,7 +24,7 @@ export default function Login() {
           password_hash: password,
         },
       {
-        withCredentials: true, // ✅ This sends and receives HTTP-only cookies
+        withCredentials: true, 
       })
         .then(function (response) {
           console.log(response.data.message, "response.data.token");
