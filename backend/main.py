@@ -173,12 +173,6 @@ def check_password(plain_password: str, hashed_password: str) -> bool:
 
         return bcrypt.checkpw(plain_password.encode('utf-8'), hashed_password.encode('utf-8'))
 
-
-p= "admin"
-print(get_password_hash(p))
-
-print("hello",bcrypt.checkpw(p.encode('utf-8'),get_password_hash(p).encode('utf-8')))
-
 @app.post("/login")
 async def user_login(loginitem: LoginItem, response: Response):
     data = jsonable_encoder(loginitem)
@@ -196,7 +190,7 @@ async def user_login(loginitem: LoginItem, response: Response):
             key="token",
             value=token,
             httponly=True,
-            secure=False,  # Change to True in production (HTTPS)
+            secure=True,  
             samesite="Lax",
             max_age=ACCES_TOKEN_EXPRIES_MINUTES * 60
         )
@@ -393,3 +387,9 @@ def update_report(match_id: int, new_report: ReportItem):
     session.commit()
 
     return report
+
+if __name__ == "__main__":
+    import uvicorn
+    import os
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run("main:app", host="0.0.0.0", port=port, reload=False)
