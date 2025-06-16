@@ -6,13 +6,14 @@ import { Select,  MenuItem, Box, TextField } from "@mui/material";
 import HeaderComponent from "../components/HeaderComponent";
 import type { SelectChangeEvent } from '@mui/material/Select';
 import type { Team } from "../interfaces";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 export default function SignUp() {
   const [teamList, setTeamList] = useState<Team[]>([]);
   useEffect(() => {
     const fetchUserMatches = async () => {
       try {
 
-        const res = await fetch(`http://localhost:8000/team/`);
+        const res = await fetch(`${API_BASE_URL}/team/`);
         const data = await res.json();
         setTeamList(data.Teams);
 

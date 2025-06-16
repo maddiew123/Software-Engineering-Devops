@@ -4,7 +4,7 @@ import { useNavigate } from "react-router";
 import { useState } from "react";
 import "../styling/Login.css"
 import HeaderComponent from "../components/HeaderComponent";
-
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 export default function Login() {
   const navigate = useNavigate();
@@ -19,7 +19,7 @@ export default function Login() {
     } else {
       console.log("hello")
       axios
-        .post("http://localhost:8000/login", {
+        .post(`${API_BASE_URL}/login`, {
           username: username,
           password_hash: password,
         },

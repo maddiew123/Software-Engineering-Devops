@@ -4,7 +4,7 @@ import "../styling/Profile.css"
 import DateIcon from "./DateIcon";
 import { Modal, Box } from "@mui/material";
 import AddMatchReport from "./AddMatchReport";
-
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 export default function MatchCard({ num, element, handleUpdate, admin  }: { num: number, element: any, admin: boolean, handleUpdate: (index: number, updatedMatch: any) => void; }) {
   const homeTeamName = useTeamName(element.home_team_id);
   const opponentTeamName = useTeamName(element.opponent_team_id);
@@ -62,7 +62,7 @@ function useTeamName(team: number) {
     const fetchTeamName = async () => {
       if (team) {
         try {
-          const res = await fetch(`http://localhost:8000/team/${team}`);
+          const res = await fetch(`${API_BASE_URL}/team/${team}`);
           const data = await res.json();
           setTeamName(data.team_name);
         } catch (error) {

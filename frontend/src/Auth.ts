@@ -35,7 +35,7 @@
 
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 // Utility hook to check if the user is authenticated
 export function useAuth() {
   const [user, setUser] = useState<null | {
@@ -49,7 +49,7 @@ export function useAuth() {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const res = await fetch("http://localhost:8000/me", {
+        const res = await fetch(`${API_BASE_URL}/me`, {
           credentials: "include", // <-- include cookies
         });
 
@@ -78,7 +78,7 @@ export function useAuth() {
 // Optional helper to logout
 export const logout = async () => {
   try {
-    await fetch("http://localhost:8000/logout", {
+    await fetch(`${API_BASE_URL}/logout`, {
       method: "POST",
       credentials: "include",
     });

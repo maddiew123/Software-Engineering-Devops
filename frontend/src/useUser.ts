@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 type User = {
   username: string;
   full_name: string;
@@ -14,7 +14,7 @@ export function useUser() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://localhost:8000/me", {
+    fetch(`${API_BASE_URL}/me`, {
       credentials: "include", // ✅ send the secure cookie
     })
       .then(async (res) => {

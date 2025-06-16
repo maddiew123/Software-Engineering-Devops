@@ -4,7 +4,7 @@ import StickyHeadTable from "../components/StickyHeadTable";
 import HeaderComponent from "../components/HeaderComponent";
 import { useUser } from "../useUser";
 import type { Team } from "../interfaces";
-
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 export default function ViewAllTeams() {
   
     const { user, loading } = useUser();
@@ -18,7 +18,7 @@ export default function ViewAllTeams() {
         const fetchAllTeams = async () => {
 
             try {
-                const response = await fetch(`http://localhost:8000/team/`);
+                const response = await fetch(`${API_BASE_URL}/team/`);
                 const data = await response.json();
                 console.log("Fetched teams:", data);
                 setAllTeams(data.Teams);

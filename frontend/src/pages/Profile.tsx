@@ -3,7 +3,7 @@ import MatchCard from "../components/MatchCard";
 import "../styling/Profile.css"
 import HeaderComponent from "../components/HeaderComponent";
 import { useUser } from "../useUser";
-
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 export default function Profile() {
 
   type Match = {
@@ -31,8 +31,8 @@ export default function Profile() {
       try {
         const response = await fetch(
           admin
-            ? "http://localhost:8000/match/"
-            : `http://localhost:8000/match/team/${team}`
+            ? `${API_BASE_URL}/match/`
+            : `${API_BASE_URL}/match/team/${team}`
         );
 
         const data = await response.json();
