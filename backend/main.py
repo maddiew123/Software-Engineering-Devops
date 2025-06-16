@@ -15,8 +15,6 @@ from fastapi.responses import FileResponse
 Base = declarative_base()
 
 
-app.mount("/static", StaticFiles(directory="frontend_dist/assets"), name="static")
-
 class Team(Base):
     __tablename__ = "team"
 
@@ -128,7 +126,7 @@ ACCES_TOKEN_EXPRIES_MINUTES = 800
 
 app = FastAPI()
 
-origins = ["https://software-engineering-agile-assignment-3.onrender.com"]
+origins = ["*"]
 
 app.add_middleware(
     CORSMiddleware,
