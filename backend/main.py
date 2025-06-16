@@ -9,7 +9,7 @@ import jwt
 from pydantic import BaseModel
 from sqlalchemy import Column, Date, Integer, String, create_engine, or_
 from sqlalchemy.orm import declarative_base, sessionmaker
-
+import os
 Base = declarative_base()
 
 class Team(Base):
