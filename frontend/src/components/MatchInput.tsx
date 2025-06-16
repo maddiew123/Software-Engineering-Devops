@@ -50,7 +50,7 @@ export default function MatchInput({ num, index, inlocation, indate, inopponent,
                     opponent_team_id: opponent,
                     home_team_id: home,
                 }
-                const response = await axios.post('http://127.0.0.1:8000/match/create', data)
+                const response = await axios.post(`${API_BASE_URL}/match/create`, data)
                 console.log('Match Created:', response.data);
                 setConfirm(true)
                 handleClose()
@@ -68,7 +68,7 @@ export default function MatchInput({ num, index, inlocation, indate, inopponent,
                     opponent_team_id: opponent,
                     home_team_id: home,
                 }
-                const response = await axios.put(`http://127.0.0.1:8000/match/update/${index}`, data)
+                const response = await axios.put(`${API_BASE_URL}/match/update/${index}`, data)
                 console.log('Match Updated:', response.data);
 
                 if (handleUpdate && num) {
@@ -86,7 +86,7 @@ export default function MatchInput({ num, index, inlocation, indate, inopponent,
 
     const deleteMatch = async () => {
         try {
-            const response = await axios.delete(`http://127.0.0.1:8000/match/delete/${index}`);
+            const response = await axios.delete(`${API_BASE_URL}/match/delete/${index}`);
             navigate("/profile")
             console.log('Match deleted:', response.data);
             if (handleUpdate && num) {

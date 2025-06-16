@@ -7,6 +7,7 @@ import HeaderComponent from "../components/HeaderComponent";
 import type { SelectChangeEvent } from '@mui/material/Select';
 import type { Team } from "../interfaces";
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 export default function SignUp() {
   const [teamList, setTeamList] = useState<Team[]>([]);
   useEffect(() => {
@@ -55,7 +56,7 @@ const handleSelectChange = (e: SelectChangeEvent) => {
         team_id: form.team_id ? Number(form.team_id) : undefined,
       };
 
-      const response = await axios.post("http://127.0.0.1:8000/signup", payload);
+      const response = await axios.post(`${API_BASE_URL}/signup`, payload);
       setMessage(`User created! Username: ${response.data.username}`);
     } catch (error: any) {
       setMessage(error.response?.data?.detail || "Failed to create user");

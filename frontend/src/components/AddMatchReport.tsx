@@ -3,6 +3,7 @@ import NoteAddIcon from '@mui/icons-material/NoteAdd';
 import { useState } from "react";
 import "../styling/AddMatchReport.css"
 import axios from "axios";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 export default  function AddMatchReport({curReport, index, num, handleUpdate}: {curReport:string,index:number,num:number, handleUpdate: (index: number, data: any) => void}) {
   const [report, setReport] = useState(curReport)
@@ -18,7 +19,7 @@ try {
                 const data = {
                     match_report: report
                 }
-                const response = await axios.put(`http://127.0.0.1:8000/match/report/update/${index}`, data)
+                const response = await axios.put(`${API_BASE_URL}/match/report/update/${index}`, data)
                 console.log('Report Updated:', response.data);
                 handleUpdate(num , data)
                 handleClose()

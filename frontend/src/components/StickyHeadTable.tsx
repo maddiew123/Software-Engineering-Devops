@@ -12,6 +12,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Modal, Box, Button, Snackbar, TextField } from '@mui/material';
 import type { Team } from '../interfaces';
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 
 export default function StickyHeadTable({ rows, handleUpdate }: { rows: Array<Team>, handleUpdate: (index: number | null, updatedMatch?: any) => void; }) {
@@ -126,7 +127,7 @@ export function ActionButtons({ info, index, handleUpdate }: { info?: Team, inde
                 const data = {
                     team_name: teamName
                 }
-                const response = await axios.post('http://127.0.0.1:8000/team/create', data)
+                const response = await axios.post(`${API_BASE_URL}/team/create`, data)
                 console.log('Team Created:', response.data);
                 setConfirm(true)
                 handleClose()
@@ -141,7 +142,7 @@ export function ActionButtons({ info, index, handleUpdate }: { info?: Team, inde
 
             if (action == "delete" && index) {
                 try {
-                    const response = await axios.delete(`http://127.0.0.1:8000/team/delete/${key}`);
+                    const response = await axios.delete(`${API_BASE_URL}/team/delete/${key}`);
                     console.log('Team deleted:', response.data);
                     setConfirm(true)
                     handleClose()
@@ -156,14 +157,15 @@ export function ActionButtons({ info, index, handleUpdate }: { info?: Team, inde
                         team_name: teamName
                     }
 
-                    const response = await axios.put(`http://127.0.0.1:8000/team/update/${key}`, data)
+                    const response = await axios.put(`${API_BASE_URL}/team/update/${key}`, data)
                     console.log('Team Updated:', response.data);
                     setConfirm(true)
                     handleClose()
-                    {(index)&&
+                    {
+                        (index) &&
                         handleUpdate(index, data)
                     }
-                    
+
                     console.log("idk", open)
 
 
