@@ -10,7 +10,12 @@ from pydantic import BaseModel
 from sqlalchemy import Column, Date, Integer, String, create_engine, or_
 from sqlalchemy.orm import declarative_base, sessionmaker
 import os
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 Base = declarative_base()
+
+
+app.mount("/static", StaticFiles(directory="frontend_dist/assets"), name="static")
 
 class Team(Base):
     __tablename__ = "team"
