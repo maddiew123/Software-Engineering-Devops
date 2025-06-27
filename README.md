@@ -1,32 +1,41 @@
 # Software-Engineering-Agile-Assignment
+## Run the Application Locally
 1. Clone Repository
 2. cd into repo:
 ```
 cd Software-Engineering-Agile-Assignment
 ```
-3. cd into frontend folder:
+3. start virtual environment
+```
+source backend/.venv/bin/activate
+```
+4. run the backend
+```
+uvicorn backend.main:app --reload
+```
+5. Open another terminal
+   
+6. cd into frontend folder:
 ```
 cd frontend
 ```
-4. install dependencies
+7. install dependencies
 ```
 npm i
 ```
-5. run application
+8. run frontend application
 ```
 npm run dev
 ```
-6. open another terminal, keeping the frontend terminal open
-7. cd into the backend folder
+9. Open the local host link
+
+## Run Tests
+
+1. cd into root folder:
 ```
-cd backend
+cd Software-Engineering-Agile-Assignment
 ```
-8. start virtual environment
+2. run all tests
 ```
-source .venv/bin/activate
+pytest
 ```
-9. run the backend
-```
-uvicorn main:app --reload
-```              
-10. Open the local host link
