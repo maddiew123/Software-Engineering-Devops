@@ -12,7 +12,7 @@ Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
-origins = ["https://software-engineering-agile-assignment-3.onrender.com","localhost:5173"]
+origins = ["https://software-engineering-agile-assignment-3.onrender.com","http://localhost:5173"]
 
 app.add_middleware(
     CORSMiddleware,
