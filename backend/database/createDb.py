@@ -1,5 +1,5 @@
 import os
-from backend.database import engine, Base, Session
+from backend.database.database import engine, Base, Session
 from backend.models import Team, User, Match
 from datetime import date, timedelta
 import random

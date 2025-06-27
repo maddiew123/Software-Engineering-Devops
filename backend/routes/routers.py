@@ -4,7 +4,7 @@ from fastapi.encoders import jsonable_encoder
 import jwt
 from pydantic import BaseModel
 from sqlalchemy import or_
-from backend.database import get_db
+from backend.database.database import get_db
 
 from backend.models import Match, Team, User
 from sqlalchemy.orm import Session
