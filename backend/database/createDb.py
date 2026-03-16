@@ -56,7 +56,7 @@ def create_database():
                 username= "admin",
                 password_hash="$2b$12$BSyRxFYhVVrjzAlQXUl1.eKi6A/91z4Y1IePaVIeB0KZTaUvJrjfO",
                 full_name="admin",
-                email=f"admin@example.com",
+                email="admin@example.com",
                 team_id=random.randint(0, 10),
                 role="Manager"
             )

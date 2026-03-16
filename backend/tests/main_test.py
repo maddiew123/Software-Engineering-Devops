@@ -2,7 +2,7 @@ import pytest
 from fastapi.testclient import TestClient
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from backend.models import Base, User, Team, Match
+from backend.models import Base, Team
 from backend.database.database import get_db
 from backend.main import app 
 

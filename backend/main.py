@@ -1,7 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import os
-from backend.database.createDb import create_database
 from backend.routes import routers
 from backend.database.database import engine
 from backend.database.database import Base

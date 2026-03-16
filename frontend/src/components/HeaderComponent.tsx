@@ -24,6 +24,11 @@ export default function HeaderComponent({admin, loggedIn}:{admin:boolean,loggedI
     });
 };
 
+    const myMatches = () => {
+
+        navigate("/profile");
+    };
+
 return (
     <Box className="header">
       <AppBar position="static" color="transparent">
