@@ -11,4 +11,5 @@ bleach==6.1.0
 python-dotenv==1.0.1
 python-multipart==0.0.12
 httpx
+pytest
  
