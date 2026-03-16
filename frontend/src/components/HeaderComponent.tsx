@@ -7,18 +7,22 @@ import Typography from '@mui/material/Typography';
 import AdminOptions from "./AdminOptions";
 import PersonIcon from '@mui/icons-material/Person';
 import LogoutIcon from '@mui/icons-material/Logout';
+import axios from "axios";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://127.0.0.1:8000";
+
 
 export default function HeaderComponent({admin, loggedIn}:{admin:boolean,loggedIn:boolean}) { 
     const navigate = useNavigate()
     const signOut = () => {
-        localStorage.removeItem("tokenya");
-        navigate("/");
-        loggedIn=false;
-    };
-    const myMatches = () => {
-
-        navigate("/profile");
-    };
+         axios
+    .post(`${API_BASE_URL}/logout`, {}, { withCredentials: true })
+    .then(() => {
+      navigate("/login");
+    })
+    .catch((error) => {
+      console.log(error, "logout error");
+    });
+};
 
 return (
     <Box className="header">
