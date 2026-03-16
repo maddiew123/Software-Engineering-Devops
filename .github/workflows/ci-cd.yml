@@ -49,7 +49,7 @@ jobs:
           bandit -r backend/ \
             --exclude backend/.venv \
             -ll \
-            --format text
+            --format txt
 
       - name: Install project dependencies for safety check
         run: pip install -r requirements.txt
