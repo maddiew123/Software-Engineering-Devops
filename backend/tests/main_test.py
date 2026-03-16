@@ -1,6 +1,4 @@
-import pytest
 from fastapi.testclient import TestClient
-from fastapi.middleware.cors import CORSMiddleware
 
 from backend.main import app
 
