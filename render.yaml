@@ -3,10 +3,29 @@ services:
     name: fastapi-backend
     env: python
     plan: free
+    rootDir: .
     buildCommand: pip install -r requirements.txt
-    startCommand: uvicorn main:app --host 0.0.0.0 --port 10000
-    runtime: python
+    startCommand: uvicorn backend.main:app --host 0.0.0.0 --port 10000 --workers 1
+    runtime: python3.11
     region: oregon
     branch: main
-    autoDeploy: trueb
-   
+    autoDeploy: true
+    envVars:
+      - key: SECRET_KEY
+        sync: false
+      - key: PYTHON_VERSION
+        value: 3.11.0
+ 
+  - type: web
+    name: react-frontend
+    env: static
+    plan: free
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    region: oregon
+    branch: main
+    autoDeploy: true
+    envVars:
+      - key: VITE_API_BASE_URL
+        value: https://software-engineering-agile-assignment-2.onrender.com
