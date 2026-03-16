@@ -4,3 +4,5 @@ sqlalchemy
 pydantic
 pyjwt
 bcrypt
+slowapi
+bleach

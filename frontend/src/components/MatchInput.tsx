@@ -11,7 +11,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "../styling/MatchInput.css"
 import type {Team} from "../interfaces"
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL|| "http://127.0.0.1:8000";
 export default function MatchInput({ num, index, inlocation, indate, inopponent, inhome, admin, handleUpdate }: { num?: number, index?: number, inlocation: string; indate: Dayjs | null; inopponent: number; inhome: number, admin:boolean, handleUpdate?: (index: number, updatedMatch?: any) => void; }) {
     const [teamList, setTeamList] = useState<Team[]>([]);
     const [location, setLocation] = useState(inlocation);

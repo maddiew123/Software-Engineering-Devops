@@ -4,7 +4,7 @@ import "../styling/Profile.css"
 import DateIcon from "./DateIcon";
 import { Modal, Box } from "@mui/material";
 import AddMatchReport from "./AddMatchReport";
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL|| "http://127.0.0.1:8000";
 export default function MatchCard({ num, element, handleUpdate, admin  }: { num: number, element: any, admin: boolean, handleUpdate: (index: number, updatedMatch: any) => void; }) {
   const homeTeamName = useTeamName(element.home_team_id);
   const opponentTeamName = useTeamName(element.opponent_team_id);

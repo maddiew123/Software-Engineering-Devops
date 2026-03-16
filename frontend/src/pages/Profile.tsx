@@ -3,7 +3,7 @@ import MatchCard from "../components/MatchCard";
 import "../styling/Profile.css"
 import HeaderComponent from "../components/HeaderComponent";
 import { useUser } from "../useUser";
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL|| "http://127.0.0.1:8000";
 export default function Profile() {
 
   type Match = {

@@ -7,11 +7,11 @@ import random
 DB_PATH = "database.db"
 
 def create_database(): 
-
+    print("hi")
     if not os.path.exists(DB_PATH):
         Base.metadata.create_all(engine)
         session = Session()
-
+        print("hello")
         for i in range(1,11):
             new_team = Team(team_id=i, team_name="Team " + str(i))
             session.add(new_team)
@@ -80,3 +80,4 @@ def create_database():
         session.commit()
         session.close()
 
+create_database()
