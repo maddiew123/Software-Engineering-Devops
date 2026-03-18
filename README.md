@@ -1,4 +1,4 @@
-# Software-Engineering-Agile-Assignment
+# Software-Engineering-DevOps
 ## Link to Hosted website
 https://software-engineering-agile-assignment-3.onrender.com 
 ## Run the Application Locally
