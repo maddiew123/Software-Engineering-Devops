@@ -32,8 +32,7 @@ limiter = Limiter(key_func=get_remote_address)
 logging.basicConfig(level=logging.WARNING)
 logger = logging.getLogger(__name__)
 
-def get_password_hash(password: str) -> str:
-    """Hash a plain-text password using bcrypt with a random salt."""
+def get_password_hash(password: str) -> str:  
     salt = bcrypt.gensalt()
     hashed = bcrypt.hashpw(password.encode("utf-8"), salt)
     return hashed.decode("utf-8")
@@ -364,8 +363,7 @@ def delete_match(
     session: Session = Depends(get_db),
   
     _admin: dict = Depends(require_admin),
-):
-    """Admin-only: delete a match."""
+):  
     match = session.query(Match).filter(Match.match_id == match_id).first()
     if not match:
         raise HTTPException(status_code=404, detail="Match not found")

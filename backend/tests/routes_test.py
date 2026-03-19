@@ -13,10 +13,10 @@ from backend.routes.routers import (
     ALGORITHM,
 )
 
-test_app = FastAPI()
-test_app.include_router(app)
+client = FastAPI()
+client.include_router(app)
 
-client = TestClient(test_app)
+client = TestClient(client)
 
 
 def test_password_hash_and_verify():
