@@ -1,3 +1,4 @@
+from contextlib import contextmanager
 import pytest
 import jwt
 from datetime import datetime, timedelta, timezone
@@ -66,7 +67,6 @@ def player_token():
     return make_token(username="testuser", role="Player", full_name="Test User")
 
 
-from contextlib import contextmanager
 
 @contextmanager
 def auth(token: str):
