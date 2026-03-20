@@ -1,3 +1,6 @@
 .env
 .venv
 .pytest_cache
+.vite
+__pycache__
+.ruff_cache
